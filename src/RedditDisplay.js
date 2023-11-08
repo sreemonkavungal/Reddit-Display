@@ -10,7 +10,7 @@ const RedditDisplay = () => {
       .then((json) => setData(json.data.children));
   }, []);
 
-    const extractInnerHtml = (htmlString) => {
+  const extractInnerHtml = (htmlString) => {
     const div = document.createElement("div");
     div.innerHTML = htmlString;
     return div.textContent || div.innerText || "";
@@ -19,18 +19,23 @@ const RedditDisplay = () => {
   return (
     <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
       {data.map((item, index) => (
-        <Card key={index} style={{ minWidth: 275, margin: 10, maxWidth: 300 }}>
+        <Card key={index} style={{ minWidth: 275, margin: 10, maxWidth: 320 }}>
           <CardContent>
+    
             <Typography variant="h6" component="div">
               Title : {item.data.title}
             </Typography>
+
             <div dangerouslySetInnerHTML={{ __html: extractInnerHtml(item.data.selftext_html) }}/>
+            
             <Typography variant="body2" color="text.secondary">
               URL : {item.data.url}
             </Typography>
             <Typography variant="body2" color="text.secondary">
               Score : {item.data.score}
             </Typography>
+
+            
           </CardContent>
         </Card>
       ))}
