@@ -10,6 +10,12 @@ const RedditDisplay = () => {
       .then((json) => setData(json.data.children));
   }, []);
 
+    const extractInnerHtml = (htmlString) => {
+    const div = document.createElement("div");
+    div.innerHTML = htmlString;
+    return div.textContent || div.innerText || "";
+  };
+
   return (
     <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
       {data.map((item, index) => (
@@ -18,7 +24,7 @@ const RedditDisplay = () => {
             <Typography variant="h6" component="div">
               Title : {item.data.title}
             </Typography>
-            <div dangerouslySetInnerHTML={{ __html: item.data.selftext_html }}></div>
+            <div dangerouslySetInnerHTML={{ __html: extractInnerHtml(item.data.selftext_html) }}/>
             <Typography variant="body2" color="text.secondary">
               URL : {item.data.url}
             </Typography>
