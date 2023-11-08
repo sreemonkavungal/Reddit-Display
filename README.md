@@ -11,4 +11,5 @@ click to visit website : https://reddit-display.pages.dev/
 
 
 
-![Reddit-Display](https://github.com/sreemonkavungal/Reddit-Display/assets/90373393/66581cb3-d09e-447d-874c-518e6aa407ff)
+
+![Reddit Display](https://github.com/sreemonkavungal/Reddit-Display/assets/90373393/2163471f-1f25-4f7d-b7e9-e1c4534a381f)
